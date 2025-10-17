@@ -3,10 +3,10 @@ public class typeprmtn
 
 {
      public static void main(String[] args) {
-         byte a = 127;
-         byte b = 126;
+         byte b = 127;
+         byte d = 126;
 
-         int result =a*b;
+         int result =b*d;
 
 
 
