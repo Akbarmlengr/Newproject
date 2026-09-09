@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1e1e2f;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: #f0f0f5;
+}
+
+.card {
+  background: #2a2a3d;
+  padding: 2.5rem;
+  border-radius: 12px;
+  max-width: 480px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  color: #a78bfa;
+}
+
+blockquote {
+  font-size: 1.25rem;
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+#author {
+  font-style: italic;
+  color: #9ca3af;
+  margin-bottom: 1.5rem;
+}
+
+button {
+  background: #a78bfa;
+  color: #1e1e2f;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: #c4b5fd;
+}
