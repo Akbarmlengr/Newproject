@@ -28,3 +28,11 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Node / price-watcher ###
+node_modules/
+dist/
+.env
+*.sqlite
+*.sqlite3
+npm-debug.log*
