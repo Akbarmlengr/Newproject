@@ -65,7 +65,7 @@ instead of failing — useful while developing.
 - [x] Scheduled price checks (cron, default every 6 hours)
 - [x] Price history stored per item
 - [x] Email alert on price drop or target price reached
-- [ ] Charts/sparklines for price history
+- [x] Sparkline charts for price history in the dashboard
 - [ ] User accounts / multi-user support
 - [ ] Deploy to a public URL
 - [ ] Additional marketplaces beyond eBay

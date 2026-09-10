@@ -118,3 +118,28 @@ td {
   padding: 0.5rem 0.75rem;
   border-radius: 6px;
 }
+
+.sparkline-line {
+  stroke: #2a78d6;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sparkline-dot {
+  fill: #2a78d6;
+}
+
+.sparkline-ring {
+  fill: #fff;
+}
+
+.sparkline-hit {
+  fill: transparent;
+  pointer-events: all;
+}
+
+.sparkline-empty {
+  color: #898781;
+  font-size: 0.8rem;
+}

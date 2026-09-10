@@ -50,6 +50,40 @@ rather than trying to build the "perfect" version all at once.
 
 ---
 
+## Day 2 — 2026-09-10
+
+**What I built today:** Made the price history actually visible, instead of
+just numbers sitting in the database.
+
+- **Trend charts on the dashboard.** Every item you're tracking now shows a
+  small line chart (a "sparkline") right in the watchlist, so you can see at
+  a glance whether the price has been going up, down, or staying flat —
+  without having to read a table of numbers.
+- **A dot marking the latest price**, so the most recent check is always
+  clearly visible at the end of the line, and you can hover over any point
+  on the line to see the exact price at that moment.
+- **The backend now hands over price history efficiently** — instead of the
+  dashboard having to ask "what's the history for item 1? item 2? item 3?"
+  one at a time, it gets everything in a single request, so the page stays
+  fast even as the watchlist grows.
+
+**Why:** A table of raw prices is hard to read at a glance. A trend line
+answers "is this worth buying now?" in about half a second, which is the
+whole point of a price watcher.
+
+**How I checked it worked:** Since I don't have real eBay API credentials
+set up yet, I temporarily inserted a handful of fake price points straight
+into the database, confirmed the dashboard's data endpoint returned them in
+the right order, and confirmed the frontend still builds cleanly with the
+new chart code. Then removed the fake data before committing.
+
+**What's next:**
+- Get real eBay credentials wired in so this runs against live data
+- Deploy the app somewhere public
+- Look into a second data source (see "other ways to get the data" below)
+
+---
+
 <!--
 Template for future entries — copy this below the newest entry:
 

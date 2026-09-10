@@ -21,6 +21,8 @@ itemsRouter.get("/search", async (req, res) => {
 });
 
 // List everything currently being tracked, with its latest known price.
+const TREND_POINTS = 30;
+
 itemsRouter.get("/", (req, res) => {
   const items = db
     .prepare(
@@ -29,11 +31,22 @@ itemsRouter.get("/", (req, res) => {
                 WHERE item_id = items.id ORDER BY checked_at DESC LIMIT 1) AS latest_price,
               (SELECT MIN(price) FROM price_history WHERE item_id = items.id) AS lowest_price,
               (SELECT checked_at FROM price_history
-                WHERE item_id = items.id ORDER BY checked_at DESC LIMIT 1) AS last_checked_at
+                WHERE item_id = items.id ORDER BY checked_at DESC LIMIT 1) AS last_checked_at,
+              (SELECT json_group_array(price) FROM (
+                 SELECT price FROM (
+                   SELECT price, checked_at FROM price_history
+                    WHERE item_id = items.id ORDER BY checked_at DESC LIMIT ${TREND_POINTS}
+                 ) ORDER BY checked_at ASC
+               )) AS price_trend_json
          FROM items
          ORDER BY items.created_at DESC`
     )
-    .all();
+    .all()
+    .map((item) => ({
+      ...item,
+      price_trend: JSON.parse(item.price_trend_json ?? "[]"),
+      price_trend_json: undefined,
+    }));
   res.json(items);
 });
 

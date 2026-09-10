@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { api } from "./api.js";
+import Sparkline from "./Sparkline.jsx";
 
 function SearchPanel({ onTrack }) {
   const [query, setQuery] = useState("");
@@ -65,6 +66,7 @@ function Watchlist({ items, onUntrack, onRefresh }) {
         <thead>
           <tr>
             <th>Item</th>
+            <th>Trend</th>
             <th>Current price</th>
             <th>Lowest seen</th>
             <th>Last checked</th>
@@ -78,6 +80,9 @@ function Watchlist({ items, onUntrack, onRefresh }) {
                 <a href={item.url} target="_blank" rel="noreferrer">
                   {item.title}
                 </a>
+              </td>
+              <td>
+                <Sparkline values={item.price_trend} />
               </td>
               <td>{item.latest_price ?? "—"}</td>
               <td>{item.lowest_price ?? "—"}</td>
