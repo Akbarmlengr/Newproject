@@ -36,3 +36,9 @@ dist/
 *.sqlite
 *.sqlite3
 npm-debug.log*
+
+### Python / optimization ###
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
